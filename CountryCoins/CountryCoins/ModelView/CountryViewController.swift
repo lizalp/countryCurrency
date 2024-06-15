@@ -21,6 +21,7 @@ class CountryViewController: UIViewController {
         configureUI()
         countryCollectionView.delegate = self
         appStorage.fetchFlags()
+        appStorage.fetchCountriesDetails()
         setupDataSource()
         updateSnapshot(with: appStorage.flags)
     }
@@ -79,7 +80,13 @@ class CountryViewController: UIViewController {
 
 extension CountryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(CountryDetailViewController(), animated: true)
+        let viewController = CountryDetailViewController()
+        //inyección de dependencias mediante propiedad publica
+        viewController.appStorage = appStorage
+        //inyección de Cuntry Detail en el objeto
+        viewController.countryDetail = appStorage.countriesDetails[indexPath.row]
+        viewController.index = indexPath.row
+        self.navigationController?.pushViewController(viewController, animated: true)
             print("Selected item at \(indexPath)")
         }
 }

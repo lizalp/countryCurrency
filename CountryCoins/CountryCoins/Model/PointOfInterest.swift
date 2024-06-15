@@ -7,17 +7,18 @@
 
 import Foundation
 
-// MARK: - PointsOfInterest
-struct PointsOfInterest: Codable {
-    let paises: [[String: [Paise]]]
-
-    enum CodingKeys: String, CodingKey {
-        case paises = "Paises"
-    }
+// MARK: - Internal Models
+struct PointOfInterest: Codable, Hashable {
+    let pais: String
+    let points: [CitiesDTO]
 }
 
-// MARK: - Paise
-struct Paise: Codable {
+struct PointsOfInterestDTO: Codable, Hashable {
+    let Paises: [[String: [CitiesDTO]]]
+}
+
+struct CitiesDTO: Codable, Hashable {
     let estado: String
     let lugares: [String]
 }
+

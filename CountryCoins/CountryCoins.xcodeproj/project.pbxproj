@@ -27,12 +27,12 @@
 		71E387822C1AB91F00921A4F /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387812C1AB91F00921A4F /* Capital.swift */; };
 		71E387842C1AB93A00921A4F /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387832C1AB93A00921A4F /* CountryDetail.swift */; };
 		71E387862C1AB99F00921A4F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387852C1AB99F00921A4F /* Country.swift */; };
-		71E387882C1AB9AF00921A4F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387872C1AB9AF00921A4F /* Currency.swift */; };
 		71E3878A2C1AB9CC00921A4F /* CurrencyConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387892C1AB9CC00921A4F /* CurrencyConversion.swift */; };
 		71E3878C2C1ABA2200921A4F /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E3878B2C1ABA2200921A4F /* PointOfInterest.swift */; };
 		71E387942C1ABC5900921A4F /* CountryCoinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387932C1ABC5900921A4F /* CountryCoinsTests.swift */; };
 		71E3879B2C1ABC8500921A4F /* AppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E3879A2C1ABC8500921A4F /* AppStoreTests.swift */; };
 		71E3879D2C1AC24000921A4F /* FlagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E3879C2C1AC24000921A4F /* FlagCollectionCell.swift */; };
+		71E387A42C1D76BA00921A4F /* PointsOfInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387A32C1D76BA00921A4F /* PointsOfInterestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,13 +68,13 @@
 		71E387812C1AB91F00921A4F /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 		71E387832C1AB93A00921A4F /* CountryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
 		71E387852C1AB99F00921A4F /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		71E387872C1AB9AF00921A4F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		71E387892C1AB9CC00921A4F /* CurrencyConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversion.swift; sourceTree = "<group>"; };
 		71E3878B2C1ABA2200921A4F /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
 		71E387912C1ABC5900921A4F /* CountryCoinsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountryCoinsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E387932C1ABC5900921A4F /* CountryCoinsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCoinsTests.swift; sourceTree = "<group>"; };
 		71E3879A2C1ABC8500921A4F /* AppStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTests.swift; sourceTree = "<group>"; };
 		71E3879C2C1AC24000921A4F /* FlagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagCollectionCell.swift; sourceTree = "<group>"; };
+		71E387A32C1D76BA00921A4F /* PointsOfInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOfInterestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +166,6 @@
 				71E387812C1AB91F00921A4F /* Capital.swift */,
 				71E387832C1AB93A00921A4F /* CountryDetail.swift */,
 				71E387852C1AB99F00921A4F /* Country.swift */,
-				71E387872C1AB9AF00921A4F /* Currency.swift */,
 				71E387892C1AB9CC00921A4F /* CurrencyConversion.swift */,
 				71E3878B2C1ABA2200921A4F /* PointOfInterest.swift */,
 			);
@@ -190,6 +189,7 @@
 				71E3876A2C1A965F00921A4F /* CurrencyViewController.swift */,
 				71E387682C1A876200921A4F /* TabViewController.swift */,
 				71E387662C1A821100921A4F /* CountryDetailViewController.swift */,
+				71E387A32C1D76BA00921A4F /* PointsOfInterestViewController.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -301,7 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71E387882C1AB9AF00921A4F /* Currency.swift in Sources */,
 				71E387542C19EFA200921A4F /* CountryViewController.swift in Sources */,
 				71E387822C1AB91F00921A4F /* Capital.swift in Sources */,
 				71E3878C2C1ABA2200921A4F /* PointOfInterest.swift in Sources */,
@@ -315,6 +314,7 @@
 				71E387672C1A821100921A4F /* CountryDetailViewController.swift in Sources */,
 				71E3879D2C1AC24000921A4F /* FlagCollectionCell.swift in Sources */,
 				71E387692C1A876200921A4F /* TabViewController.swift in Sources */,
+				71E387A42C1D76BA00921A4F /* PointsOfInterestViewController.swift in Sources */,
 				71E387522C19EFA200921A4F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

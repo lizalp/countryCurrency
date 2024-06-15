@@ -9,7 +9,12 @@ import Foundation
 
 // MARK: - Capital
 struct Capital: Codable {
+    let name: String
+    let estados: [String]
+}
+
+struct State: Codable, Hashable {
     let estado: String
 }
 
-typealias Capitals = [[String: [Capital]]]
+// [[String: [Capital]]]
