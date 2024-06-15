@@ -13,6 +13,11 @@ class TabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTab()
+        NotificationCenter.default.addObserver(self, selector: #selector(notification), name: .tabBarNotification, object: nil)
+    }
+    
+    @objc func notification() {
+        self.selectedIndex = 1
     }
     
     private func configureTab() {

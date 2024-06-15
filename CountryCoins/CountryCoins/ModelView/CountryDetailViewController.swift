@@ -13,6 +13,7 @@ class CountryDetailViewController: UIViewController  {
     //var currency: CurrencyElement!
     var appStorage: AppStorage!
     var index: Int!
+    var selectCurrency: String!
     
     private var dataSource: UITableViewDiffableDataSource<Int,String>!
     
@@ -35,6 +36,7 @@ class CountryDetailViewController: UIViewController  {
     
     private lazy var currencyButton: UIButton = {
         let button = UIButton()
+        button.configuration = UIButton.Configuration.borderedProminent()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -56,10 +58,13 @@ class CountryDetailViewController: UIViewController  {
         appStorage.fetchFlags()
         appStorage.fetchCapitals()
         appStorage.fetchPointsOfInterest()
+        appStorage.fetchCurrency()
         self.title = countryDetail.nombre
         //update(with: countryDetail)
         setupViews()
         updateSnapshot(with: capitalsToStrings())
+        getCoinsCountry()
+        currencyButton.setTitle(selectCurrency, for: .normal)
     }
     
     private func setupDataSource() {
@@ -102,27 +107,32 @@ class CountryDetailViewController: UIViewController  {
         languageLabel.text = "Language: \(countryDetail.idioma)"
         view.addSubview(languageLabel)
         
-//        currencyButton.setTitle("Currency: \(currency.nombre)", for: .normal)
-//        currencyButton.setTitleColor(.systemBlue, for: .normal)
-//        currencyButton.addTarget(self, action: #selector(currencyButtonTapped), for: .touchUpInside)
-//        view.addSubview(currencyButton)
         
-//        statesTableView.delegate = self
-//        statesTableView.dataSource = self
-//        statesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "StateCell")
-//        view.addSubview(statesTableView)
-//        @objc private func currencyButtonTapped() {
-//                let currencyVC = CurrencyViewController()
-//                currencyVC.currency = country.currency
-//                navigationController?.pushViewController(currencyConversionVC, animated: true)
-//            }
+//        currencyButton.setTitle("Currency: \()", for: .normal)
+//        currencyButton.setTitleColor(.systemBlue, for: .normal)
+        currencyButton.addTarget(self, action: #selector(currencyButtonTapped), for: .touchUpInside)
+//        view.addSubview(currencyButton)
+
        }
+    
+    @objc private func currencyButtonTapped() {
+        NotificationCenter.default.post(name: .tabBarNotification, object: nil)
+    }
+    
+    func getCoinsCountry() {
+        if let c = appStorage.currency.first(where: { currencyDTO in
+            currencyDTO.nombre == countryDetail.nombre
+        }) {
+            selectCurrency = c.moneda
+        }
+    }
     
     func configureUI() {
         view.addSubview(flagImageView)
         view.addSubview(capitalLabel)
         view.addSubview(languageLabel)
         view.addSubview(statesTableView)
+        view.addSubview(currencyButton)
         
         NSLayoutConstraint.activate([
             
@@ -139,12 +149,16 @@ class CountryDetailViewController: UIViewController  {
             flagImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             flagImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            statesTableView.topAnchor.constraint(equalTo: flagImageView.bottomAnchor, constant: 20),
+            currencyButton.topAnchor.constraint(equalTo: flagImageView.bottomAnchor, constant: 20),
+            currencyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            currencyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            currencyButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            statesTableView.topAnchor.constraint(equalTo: currencyButton.bottomAnchor, constant: 20),
             statesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             statesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             statesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
             
-
         ])
     }
 }

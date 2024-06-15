@@ -33,6 +33,7 @@
 		71E3879B2C1ABC8500921A4F /* AppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E3879A2C1ABC8500921A4F /* AppStoreTests.swift */; };
 		71E3879D2C1AC24000921A4F /* FlagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E3879C2C1AC24000921A4F /* FlagCollectionCell.swift */; };
 		71E387A42C1D76BA00921A4F /* PointsOfInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387A32C1D76BA00921A4F /* PointsOfInterestViewController.swift */; };
+		71E387A62C1D8D4800921A4F /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E387A52C1D8D4800921A4F /* NotificationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		71E3879A2C1ABC8500921A4F /* AppStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTests.swift; sourceTree = "<group>"; };
 		71E3879C2C1AC24000921A4F /* FlagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagCollectionCell.swift; sourceTree = "<group>"; };
 		71E387A32C1D76BA00921A4F /* PointsOfInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOfInterestViewController.swift; sourceTree = "<group>"; };
+		71E387A52C1D8D4800921A4F /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				71E387682C1A876200921A4F /* TabViewController.swift */,
 				71E387662C1A821100921A4F /* CountryDetailViewController.swift */,
 				71E387A32C1D76BA00921A4F /* PointsOfInterestViewController.swift */,
+				71E387A52C1D8D4800921A4F /* NotificationExtension.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				71E387842C1AB93A00921A4F /* CountryDetail.swift in Sources */,
 				71E387502C19EFA200921A4F /* AppDelegate.swift in Sources */,
 				71E387862C1AB99F00921A4F /* Country.swift in Sources */,
+				71E387A62C1D8D4800921A4F /* NotificationExtension.swift in Sources */,
 				71E387672C1A821100921A4F /* CountryDetailViewController.swift in Sources */,
 				71E3879D2C1AC24000921A4F /* FlagCollectionCell.swift in Sources */,
 				71E387692C1A876200921A4F /* TabViewController.swift in Sources */,

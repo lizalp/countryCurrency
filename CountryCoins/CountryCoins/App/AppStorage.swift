@@ -12,6 +12,8 @@ class AppStorage {
     var countriesDetails: [CountryDetail] = []
     var capitals: [Capital] = []
     var pointsOfInterest: [PointOfInterest] = []
+    var currency: [CurrencyDTO] = []
+    var currencyConversionn: [CurrencyConversionDTO] = []
     
     
     func fetchFlags() {
@@ -64,7 +66,27 @@ class AppStorage {
         pointsOfInterest = pointsOfIntererst
     }
     
+    func fetchCurrency() {
+        guard let url = Bundle.main.url(forResource: "Currency", withExtension: "json"), let data = try? Data(contentsOf: url), let decoded = try? JSONDecoder().decode([CurrencyDTO].self, from: data) else { return }
+        currency = decoded
+    }
     
+    func fetchCurrencyConversion() {
+        guard let url = Bundle.main.url(forResource: "CurrencyConversion", withExtension: "json"),
+                let data = try? Data(contentsOf: url),
+              let decoded = try? JSONDecoder().decode([[String: [String: Double]]].self, from: data) else { return }
+        
+        var currencyConversionDTOs = [CurrencyConversionDTO]()
+        
+        for currencyConversion in decoded {
+            for (currency, rates) in currencyConversion {
+                let dto = CurrencyConversionDTO(currency: currency, rates: rates)
+                currencyConversionDTOs.append(dto)
+            }
+        }
+        
+        currencyConversionn = currencyConversionDTOs
+    }
 
 }
 
