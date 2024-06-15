@@ -31,8 +31,25 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         setupViews()
         setupConstraints()
+        
+        addActionToImage()
     }
     
+    func addActionToImage() {
+        arrowImageView.isUserInteractionEnabled = true
+        let action = UITapGestureRecognizer(target: self, action: #selector(imageAction))
+        arrowImageView.addGestureRecognizer(action)
+    }
+    
+    private var isRight = true
+    @objc func imageAction() {
+        isRight.toggle()
+        if isRight {
+            arrowImageView.image = UIImage(systemName: "arrow.right")
+        } else {
+            arrowImageView.image = UIImage(systemName: "arrow.left")
+        }
+    }
     
     private func setupViews() {
         view.addSubview(fromCurrencyPicker)
@@ -102,8 +119,16 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             return
         }
         
-        let fromCurrency = currencies[fromCurrencyPicker.selectedRow(inComponent: 0)]
-        let toCurrency = currencies[toCurrencyPicker.selectedRow(inComponent: 0)]
+        var fromCurrency = ""
+        var toCurrency = ""
+        if isRight {
+             fromCurrency = currencies[fromCurrencyPicker.selectedRow(inComponent: 0)]
+             toCurrency = currencies[toCurrencyPicker.selectedRow(inComponent: 0)]
+        } else {
+             fromCurrency = currencies[toCurrencyPicker.selectedRow(inComponent: 0)]
+             toCurrency = currencies[fromCurrencyPicker.selectedRow(inComponent: 0)]
+        }
+        
         
         if let fromRate = exchangeRates[fromCurrency], let toRate = exchangeRates[toCurrency] {
             let convertedAmount = amount * (toRate / fromRate)
