@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct CorrencyConversion: Codable {
+    let fromCurrency: String
+    let rates: [String: Double]
+}
+
+typealias CurrencyConversion = [[String: [String: Double]]]

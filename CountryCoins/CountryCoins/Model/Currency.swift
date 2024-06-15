@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+// MARK: - CurrencyElement
+struct CurrencyElement: Codable {
+    let nombre: String
+    let moneda: String
+}
+
+typealias Currency = [CurrencyElement]

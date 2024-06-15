@@ -20,11 +20,18 @@ class AppStorage {
         })
     }
     
-    func fetchCountriesDetails() {
+    func fetchCountriesDetails() -> [CountryDetail]? {
+
         guard let url = Bundle.main.url(forResource: "CountryDetail", withExtension: "json"), let data = try? Data(contentsOf: url),
-              let decoded = try? JSONDecoder().decode([CountryDetail].self, from: data) else { return }
-        
-        
+              let decoded = try? JSONDecoder().decode([CountryDetail].self, from: data) else { return nil }
+        return decoded
     }
+    
+//    func getCountryDetails() -> [CountryDetailsDTO]? {
+//            guard let jsonMock = getMockData(from: CountryMockNames.CountryDetails.rawValue),
+//                  let decoded = try? decodeJSON(type: [CountryDetailsDTO].self, from: jsonMock) else { return nil }
+//            return decoded
+//        }
+
 }
 

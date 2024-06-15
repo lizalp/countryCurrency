@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+// MARK: - Country
+struct Country: Codable {
+    let id: Int
+    let nombre: String
+}
+
+typealias Countrys = [Country]

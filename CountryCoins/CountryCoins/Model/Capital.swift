@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+// MARK: - Capital
+struct Capital: Codable {
+    let estado: String
+}
+
+typealias Capitals = [[String: [Capital]]]

@@ -38,19 +38,19 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         view.addSubview(toCurrencyPicker)
         view.addSubview(arrowImageView)
         
-        amountTextField.placeholder = "Enter amount"
+        amountTextField.placeholder = "Ingresa monto"
         amountTextField.keyboardType = .decimalPad
         amountTextField.borderStyle = .roundedRect
         view.addSubview(amountTextField)
         
-        convertButton.setTitle("Convert", for: .normal)
+        convertButton.setTitle("Convertir", for: .normal)
         convertButton.setTitleColor(.white, for: .normal)
         convertButton.backgroundColor = .systemBlue
         convertButton.layer.cornerRadius = 5
         convertButton.addTarget(self, action: #selector(convertButtonTapped), for: .touchUpInside)
         view.addSubview(convertButton)
         
-        resultLabel.text = "Result: "
+        resultLabel.text = "Resultado: "
         resultLabel.textAlignment = .center
         view.addSubview(resultLabel)
     }
@@ -97,7 +97,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @objc private func convertButtonTapped() {
         guard let amountText = amountTextField.text, let amount = Double(amountText), amount >= 0 else {
-            resultLabel.text = "Invalid amount"
+            resultLabel.text = "Monto invalido"
             return
         }
         

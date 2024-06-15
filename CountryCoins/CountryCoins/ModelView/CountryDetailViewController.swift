@@ -9,6 +9,8 @@ import UIKit
 
 class CountryDetailViewController: UIViewController {
     var countryDetail: CountryDetail!
+    var capital: Capital!
+    var currency: CurrencyElement!
     var appStorage: AppStorage!
     
     private let flagImageView = UIImageView()
@@ -24,19 +26,55 @@ class CountryDetailViewController: UIViewController {
         return label
     }()
     
+    private lazy var currencyButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let statesTableView = UITableView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         appStorage.fetchCountriesDetails()
         self.title = countryDetail.nombre
-        update(with: countryDetail)
+        //update(with: countryDetail)
+        setupViews()
     }
     
-    func update(with data: CountryDetail) {
-        languageLabel.text = data.idioma
-        capitalLabel.text = data.capital
-    }
+//    func update(with data: CountryDetail) {
+//        languageLabel.text = data.idioma
+//        capitalLabel.text = data.capital
+//    }
+    
+    private func setupViews() {
+//        flagImageView.image = country.flag
+//        flagImageView.contentMode = .scaleAspectFit
+//        view.addSubview(flagImageView)
+        
+        capitalLabel.text = "Capital: \(countryDetail.capital)"
+        view.addSubview(capitalLabel)
+        
+        languageLabel.text = "Language: \(countryDetail.idioma)"
+        view.addSubview(languageLabel)
+        
+        currencyButton.setTitle("Currency: \(currency.nombre)", for: .normal)
+        currencyButton.setTitleColor(.systemBlue, for: .normal)
+        currencyButton.addTarget(self, action: #selector(currencyButtonTapped), for: .touchUpInside)
+        view.addSubview(currencyButton)
+        
+//        statesTableView.delegate = self
+//        statesTableView.dataSource = self
+//        statesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "StateCell")
+//        view.addSubview(statesTableView)
+        @objc private func currencyButtonTapped() {
+                let currencyVC = CurrencyViewController()
+                currencyVC.currency = country.currency
+                navigationController?.pushViewController(currencyConversionVC, animated: true)
+            }
+       }
     
     func configureUI() {
         view.addSubview(flagImageView)
